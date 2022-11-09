@@ -70,4 +70,6 @@ ProjectFiles/CMakeFiles/Thermostat.dir/main.c.obj: \
  /usr/include/newlib/math.h \
  /home/austin/pico/Thermostat/ProjectFiles/seven_seg.h \
  /home/austin/pico/Thermostat/ProjectFiles/aht20.h \
- /home/austin/pico/Thermostat/ProjectFiles/i2c_module.h
+ /home/austin/pico/Thermostat/ProjectFiles/i2c_module.h \
+ /home/austin/pico/Thermostat/FreeRTOS/FreeRTOS-Kernel/include/timers.h \
+ /home/austin/pico/Thermostat/FreeRTOS/FreeRTOS-Kernel/include/task.h

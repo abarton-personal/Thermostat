@@ -73,9 +73,13 @@ Discarded input sections
  .text          0x0000000000000000        0x0 CMakeFiles/Thermostat.dir/main.c.obj
  .data          0x0000000000000000        0x0 CMakeFiles/Thermostat.dir/main.c.obj
  .bss           0x0000000000000000        0x0 CMakeFiles/Thermostat.dir/main.c.obj
+ .text.cycle_display_state
+                0x0000000000000000       0x40 CMakeFiles/Thermostat.dir/main.c.obj
  .bss.button_is_pressed
                 0x0000000000000000        0x1 CMakeFiles/Thermostat.dir/main.c.obj
  .bss.i2c_in_use
+                0x0000000000000000        0x1 CMakeFiles/Thermostat.dir/main.c.obj
+ .bss.screen_timeout_flag
                 0x0000000000000000        0x1 CMakeFiles/Thermostat.dir/main.c.obj
  .rodata.CYCLE_PIN
                 0x0000000000000000        0x4 CMakeFiles/Thermostat.dir/main.c.obj
@@ -95,9 +99,7 @@ Discarded input sections
  .text.seven_seg_reset
                 0x0000000000000000        0x4 CMakeFiles/Thermostat.dir/seven_seg.c.obj
  .text.seven_seg_display_on
-                0x0000000000000000       0x1c CMakeFiles/Thermostat.dir/seven_seg.c.obj
- .text.seven_seg_display_off
-                0x0000000000000000        0x4 CMakeFiles/Thermostat.dir/seven_seg.c.obj
+                0x0000000000000000       0x28 CMakeFiles/Thermostat.dir/seven_seg.c.obj
  .text.seven_seg_brightness
                 0x0000000000000000       0x24 CMakeFiles/Thermostat.dir/seven_seg.c.obj
  .text.seven_seg_display_test
@@ -1135,9 +1137,9 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ../FreeRTOS/libfreertos.a(list.c.obj)
  .bss           0x0000000000000000        0x0 ../FreeRTOS/libfreertos.a(list.c.obj)
  .data          0x0000000000000000        0x0 ../FreeRTOS/libfreertos.a(queue.c.obj)
- .text          0x0000000000000000        0x0 /tmp/cctBskOj.o
- .data          0x0000000000000000        0x0 /tmp/cctBskOj.o
- .bss           0x0000000000000000        0x0 /tmp/cctBskOj.o
+ .text          0x0000000000000000        0x0 /tmp/ccxb64c5.o
+ .data          0x0000000000000000        0x0 /tmp/ccxb64c5.o
+ .bss           0x0000000000000000        0x0 /tmp/ccxb64c5.o
  .data          0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x0000000000000000       0x10 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-atexit.o)
@@ -1317,11 +1319,11 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
 .boot2          0x0000000010000000      0x100
                 0x0000000010000000                __boot2_start__ = .
  *(.boot2)
- .boot2         0x0000000010000000      0x100 /tmp/cctBskOj.o
+ .boot2         0x0000000010000000      0x100 /tmp/ccxb64c5.o
                 0x0000000010000100                __boot2_end__ = .
                 0x0000000000000001                ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
-.text           0x0000000010000100     0xb0a8
+.text           0x0000000010000100     0xb2b8
                 0x0000000010000100                __logical_binary_start = .
  *(.vectors)
  .vectors       0x0000000010000100       0xd4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
@@ -1383,785 +1385,796 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
  .text.led_task
                 0x000000001000035c       0x58 CMakeFiles/Thermostat.dir/main.c.obj
                 0x000000001000035c                led_task
- .text.manage_aht20
-                0x00000000100003b4       0x78 CMakeFiles/Thermostat.dir/main.c.obj
-                0x00000000100003b4                manage_aht20
- .text.get_inputs
-                0x000000001000042c      0x110 CMakeFiles/Thermostat.dir/main.c.obj
-                0x000000001000042c                get_inputs
+ .text.manage_sensor
+                0x00000000100003b4       0xac CMakeFiles/Thermostat.dir/main.c.obj
+                0x00000000100003b4                manage_sensor
  .text.manage_relay
-                0x000000001000053c       0xa0 CMakeFiles/Thermostat.dir/main.c.obj
-                0x000000001000053c                manage_relay
+                0x0000000010000460       0xa0 CMakeFiles/Thermostat.dir/main.c.obj
+                0x0000000010000460                manage_relay
+ .text.system_initialize
+                0x0000000010000500       0x70 CMakeFiles/Thermostat.dir/main.c.obj
+                0x0000000010000500                system_initialize
+ .text.screen_timeout_callback
+                0x0000000010000570       0x40 CMakeFiles/Thermostat.dir/main.c.obj
+                0x0000000010000570                screen_timeout_callback
+ .text.get_inputs
+                0x00000000100005b0      0x184 CMakeFiles/Thermostat.dir/main.c.obj
+                0x00000000100005b0                get_inputs
  .text.startup.main
-                0x00000000100005dc       0xdc CMakeFiles/Thermostat.dir/main.c.obj
-                0x00000000100005dc                main
+                0x0000000010000734       0xb8 CMakeFiles/Thermostat.dir/main.c.obj
+                0x0000000010000734                main
  .text.seven_seg_begin
-                0x00000000100006b8       0x44 CMakeFiles/Thermostat.dir/seven_seg.c.obj
-                0x00000000100006b8                seven_seg_begin
+                0x00000000100007ec       0x50 CMakeFiles/Thermostat.dir/seven_seg.c.obj
+                0x00000000100007ec                seven_seg_begin
+ .text.seven_seg_display_off
+                0x000000001000083c       0x28 CMakeFiles/Thermostat.dir/seven_seg.c.obj
+                0x000000001000083c                seven_seg_display_off
  .text.seven_seg_display_temp
-                0x00000000100006fc       0x7c CMakeFiles/Thermostat.dir/seven_seg.c.obj
-                0x00000000100006fc                seven_seg_display_temp
+                0x0000000010000864       0xac CMakeFiles/Thermostat.dir/seven_seg.c.obj
+                0x0000000010000864                seven_seg_display_temp
+ .text.seven_seg_display_humidity
+                0x0000000010000910       0x80 CMakeFiles/Thermostat.dir/seven_seg.c.obj
+                0x0000000010000910                seven_seg_display_humidity
  .text.i2c_module_initialize
-                0x0000000010000778       0x38 CMakeFiles/Thermostat.dir/i2c_module.c.obj
-                0x0000000010000778                i2c_module_initialize
+                0x0000000010000990       0x38 CMakeFiles/Thermostat.dir/i2c_module.c.obj
+                0x0000000010000990                i2c_module_initialize
  .text.i2c_module_send
-                0x00000000100007b0       0x20 CMakeFiles/Thermostat.dir/i2c_module.c.obj
-                0x00000000100007b0                i2c_module_send
+                0x00000000100009c8       0x20 CMakeFiles/Thermostat.dir/i2c_module.c.obj
+                0x00000000100009c8                i2c_module_send
  .text.i2c_module_read
-                0x00000000100007d0       0x1c CMakeFiles/Thermostat.dir/i2c_module.c.obj
-                0x00000000100007d0                i2c_module_read
+                0x00000000100009e8       0x1c CMakeFiles/Thermostat.dir/i2c_module.c.obj
+                0x00000000100009e8                i2c_module_read
  .text.aht20_initialize
-                0x00000000100007ec       0x2c CMakeFiles/Thermostat.dir/aht20.c.obj
-                0x00000000100007ec                aht20_initialize
+                0x0000000010000a04       0x2c CMakeFiles/Thermostat.dir/aht20.c.obj
+                0x0000000010000a04                aht20_initialize
  .text.aht20_start_measurement
-                0x0000000010000818       0x30 CMakeFiles/Thermostat.dir/aht20.c.obj
-                0x0000000010000818                aht20_start_measurement
+                0x0000000010000a30       0x30 CMakeFiles/Thermostat.dir/aht20.c.obj
+                0x0000000010000a30                aht20_start_measurement
  .text.aht20_read_measurement
-                0x0000000010000848       0xdc CMakeFiles/Thermostat.dir/aht20.c.obj
-                0x0000000010000848                aht20_read_measurement
+                0x0000000010000a60       0xdc CMakeFiles/Thermostat.dir/aht20.c.obj
+                0x0000000010000a60                aht20_read_measurement
  .text.aht20_get_temp
-                0x0000000010000924        0xc CMakeFiles/Thermostat.dir/aht20.c.obj
-                0x0000000010000924                aht20_get_temp
+                0x0000000010000b3c        0xc CMakeFiles/Thermostat.dir/aht20.c.obj
+                0x0000000010000b3c                aht20_get_temp
  .text.aht20_get_humidity
-                0x0000000010000930        0xc CMakeFiles/Thermostat.dir/aht20.c.obj
-                0x0000000010000930                aht20_get_humidity
+                0x0000000010000b48        0xc CMakeFiles/Thermostat.dir/aht20.c.obj
+                0x0000000010000b48                aht20_get_humidity
  .text.gpio_set_function
-                0x000000001000093c       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x000000001000093c                gpio_set_function
+                0x0000000010000b54       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x0000000010000b54                gpio_set_function
  .text.gpio_set_pulls
-                0x000000001000096c       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x000000001000096c                gpio_set_pulls
+                0x0000000010000b84       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x0000000010000b84                gpio_set_pulls
  .text.gpio_init
-                0x000000001000099c       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x000000001000099c                gpio_init
+                0x0000000010000bb4       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x0000000010000bb4                gpio_init
  .text.hw_claim_or_assert
-                0x00000000100009d8       0x44 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x00000000100009d8                hw_claim_or_assert
+                0x0000000010000bf0       0x44 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x0000000010000bf0                hw_claim_or_assert
  .text.hw_claim_unused_from_range
-                0x0000000010000a1c       0x9c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x0000000010000a1c                hw_claim_unused_from_range
+                0x0000000010000c34       0x9c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x0000000010000c34                hw_claim_unused_from_range
  .text.running_on_fpga
-                0x0000000010000ab8       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-                0x0000000010000ab8                running_on_fpga
+                0x0000000010000cd0       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+                0x0000000010000cd0                running_on_fpga
  .text.spin_locks_reset
-                0x0000000010000ac8       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x0000000010000ac8                spin_locks_reset
+                0x0000000010000ce0       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x0000000010000ce0                spin_locks_reset
  .text.next_striped_spin_lock_num
-                0x0000000010000ae4       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x0000000010000ae4                next_striped_spin_lock_num
+                0x0000000010000cfc       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x0000000010000cfc                next_striped_spin_lock_num
  .text.spin_lock_claim_unused
-                0x0000000010000afc       0x20 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x0000000010000afc                spin_lock_claim_unused
+                0x0000000010000d14       0x20 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x0000000010000d14                spin_lock_claim_unused
  .text.irq_set_enabled
-                0x0000000010000b1c       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010000b1c                irq_set_enabled
+                0x0000000010000d34       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010000d34                irq_set_enabled
  .text.irq_set_pending
-                0x0000000010000b40       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010000b40                irq_set_pending
+                0x0000000010000d58       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010000d58                irq_set_pending
  .text.irq_has_shared_handler
-                0x0000000010000b50       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010000b50                irq_has_shared_handler
+                0x0000000010000d68       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010000d68                irq_has_shared_handler
  .text.irq_get_vtable_handler
-                0x0000000010000b7c       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010000b7c                irq_get_vtable_handler
+                0x0000000010000d94       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010000d94                irq_get_vtable_handler
  .text.irq_set_exclusive_handler
-                0x0000000010000b8c       0x54 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010000b8c                irq_set_exclusive_handler
+                0x0000000010000da4       0x54 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010000da4                irq_set_exclusive_handler
  .text.irq_add_shared_handler
-                0x0000000010000be0      0x1e4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010000be0                irq_add_shared_handler
+                0x0000000010000df8      0x1e4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010000df8                irq_add_shared_handler
  .text.irq_remove_handler
-                0x0000000010000dc4      0x1b4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010000dc4                irq_remove_handler
+                0x0000000010000fdc      0x1b4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010000fdc                irq_remove_handler
  .text.irq_add_tail_to_free_list
-                0x0000000010000f78       0xb4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010000f78                irq_add_tail_to_free_list
+                0x0000000010001190       0xb4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010001190                irq_add_tail_to_free_list
  .text.irq_init_priorities
-                0x000000001000102c       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x000000001000102c                irq_init_priorities
+                0x0000000010001244       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010001244                irq_init_priorities
  .text.user_irq_claim_unused
-                0x0000000010001050       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x0000000010001050                user_irq_claim_unused
+                0x0000000010001268       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000010001268                user_irq_claim_unused
  .text.lock_init
-                0x0000000010001080       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
-                0x0000000010001080                lock_init
+                0x0000000010001298       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+                0x0000000010001298                lock_init
  .text.timer_pool_entry_comparator
-                0x0000000010001090       0x34 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x0000000010001090                timer_pool_entry_comparator
+                0x00000000100012a8       0x34 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000100012a8                timer_pool_entry_comparator
  .text.sleep_until_callback
-                0x00000000100010c4       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000100012dc       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.add_alarm_under_lock.isra.0
-                0x00000000100010f4      0x100 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x000000001000130c      0x100 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_alarm_callback
-                0x00000000100011f4      0x1c8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x000000001000140c      0x1c8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_add_alarm_at.constprop.0
-                0x00000000100013bc      0x11c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000100015d4      0x11c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_init_default
-                0x00000000100014d8       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x00000000100014d8                alarm_pool_init_default
+                0x00000000100016f0       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000100016f0                alarm_pool_init_default
  .text.alarm_pool_get_default
-                0x000000001000153c        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x000000001000153c                alarm_pool_get_default
+                0x0000000010001754        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000010001754                alarm_pool_get_default
  .text.alarm_pool_add_alarm_at
-                0x0000000010001544      0x194 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x0000000010001544                alarm_pool_add_alarm_at
+                0x000000001000175c      0x194 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x000000001000175c                alarm_pool_add_alarm_at
  .text.best_effort_wfe_or_timeout
-                0x00000000100016d8       0xd4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x00000000100016d8                best_effort_wfe_or_timeout
+                0x00000000100018f0       0xd4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x00000000100018f0                best_effort_wfe_or_timeout
  .text.hardware_alarm_irq_handler
-                0x00000000100017ac       0xb8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x00000000100019c4       0xb8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .text.hardware_alarm_claim
-                0x0000000010001864       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010001864                hardware_alarm_claim
+                0x0000000010001a7c       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010001a7c                hardware_alarm_claim
  .text.time_us_64
-                0x000000001000187c       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x000000001000187c                time_us_64
+                0x0000000010001a94       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010001a94                time_us_64
  .text.hardware_alarm_set_callback
-                0x0000000010001890       0x8c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x0000000010001890                hardware_alarm_set_callback
+                0x0000000010001aa8       0x8c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010001aa8                hardware_alarm_set_callback
  .text.hardware_alarm_set_target
-                0x000000001000191c       0xe0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x000000001000191c                hardware_alarm_set_target
+                0x0000000010001b34       0xe0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010001b34                hardware_alarm_set_target
  .text.hardware_alarm_cancel
-                0x00000000100019fc       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x00000000100019fc                hardware_alarm_cancel
+                0x0000000010001c14       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000010001c14                hardware_alarm_cancel
  .text.ph_merge_nodes
-                0x0000000010001a38       0x68 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010001c50       0x68 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_post_alloc_init
-                0x0000000010001aa0       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x0000000010001aa0                ph_post_alloc_init
+                0x0000000010001cb8       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010001cb8                ph_post_alloc_init
  .text.ph_merge_two_pass
-                0x0000000010001adc       0x90 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x0000000010001adc                ph_merge_two_pass
+                0x0000000010001cf4       0x90 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010001cf4                ph_merge_two_pass
  .text.ph_remove_any_head
-                0x0000000010001b6c       0xf8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010001d84       0xf8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_remove_head
-                0x0000000010001c64       0xfc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x0000000010001c64                ph_remove_head
+                0x0000000010001e7c       0xfc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010001e7c                ph_remove_head
  .text.ph_remove_and_free_node
-                0x0000000010001d60       0x7c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x0000000010001d60                ph_remove_and_free_node
+                0x0000000010001f78       0x7c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x0000000010001f78                ph_remove_and_free_node
  .text.mutex_init
-                0x0000000010001ddc       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-                0x0000000010001ddc                mutex_init
+                0x0000000010001ff4       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x0000000010001ff4                mutex_init
  .text.recursive_mutex_init
-                0x0000000010001df8       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-                0x0000000010001df8                recursive_mutex_init
+                0x0000000010002010       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x0000000010002010                recursive_mutex_init
  .text.critical_section_init
-                0x0000000010001e14       0x20 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
-                0x0000000010001e14                critical_section_init
+                0x000000001000202c       0x20 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+                0x000000001000202c                critical_section_init
  .text.runtime_init
-                0x0000000010001e34       0xf0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010001e34                runtime_init
- .text._sbrk    0x0000000010001f24       0x34 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010001f24                _sbrk
- .text.exit     0x0000000010001f58        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010001f58                exit
- .text.panic    0x0000000010001f5c       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010001f5c                panic
+                0x000000001000204c       0xf0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x000000001000204c                runtime_init
+ .text._sbrk    0x000000001000213c       0x34 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x000000001000213c                _sbrk
+ .text.exit     0x0000000010002170        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010002170                exit
+ .text.panic    0x0000000010002174       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x0000000010002174                panic
  .text.hard_assertion_failure
-                0x0000000010001f8c        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x0000000010001f8c                hard_assertion_failure
+                0x00000000100021a4        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x00000000100021a4                hard_assertion_failure
  .text.clocks_init
-                0x0000000010001f98      0x2bc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x0000000010001f98                clocks_init
+                0x00000000100021b0      0x2bc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x00000000100021b0                clocks_init
  .text.clock_get_hz
-                0x0000000010002254        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x0000000010002254                clock_get_hz
+                0x000000001000246c        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x000000001000246c                clock_get_hz
  .text.pll_init
-                0x0000000010002260       0xb0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-                0x0000000010002260                pll_init
+                0x0000000010002478       0xb0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+                0x0000000010002478                pll_init
  .text.watchdog_start_tick
-                0x0000000010002310       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x0000000010002310                watchdog_start_tick
+                0x0000000010002528       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x0000000010002528                watchdog_start_tick
  .text.watchdog_reboot
-                0x0000000010002320       0x98 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x0000000010002320                watchdog_reboot
+                0x0000000010002538       0x98 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x0000000010002538                watchdog_reboot
  .text.xosc_init
-                0x00000000100023b8       0x28 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-                0x00000000100023b8                xosc_init
+                0x00000000100025d0       0x28 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+                0x00000000100025d0                xosc_init
  .text._out_null
-                0x00000000100023e0        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x00000000100025f8        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_rev
-                0x00000000100023e4       0x9c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x00000000100025fc       0x9c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._ntoa_format
-                0x0000000010002480      0x1cc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010002698      0x1cc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_char
-                0x000000001000264c       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010002864       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._out_fct
-                0x000000001000265c       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .text._etoa    0x000000001000266c      0x44c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .text._ftoa    0x0000000010002ab8      0x398 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010002874       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .text._etoa    0x0000000010002884      0x44c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .text._ftoa    0x0000000010002cd0      0x398 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text._vsnprintf
-                0x0000000010002e50      0xb04 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003068      0xb04 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text.vfctprintf
-                0x0000000010003954       0x20 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x0000000010003954                vfctprintf
+                0x0000000010003b6c       0x20 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003b6c                vfctprintf
  .text.weak_raw_vprintf
-                0x0000000010003974       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x0000000010003974                weak_raw_vprintf
- .text          0x00000000100039a4       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                0x0000000010003b8c       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x0000000010003b8c                weak_raw_vprintf
+ .text          0x0000000010003bbc       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
  .text.rom_func_lookup
-                0x00000000100039b4       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x00000000100039b4                rom_func_lookup
+                0x0000000010003bcc       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x0000000010003bcc                rom_func_lookup
  .text.rom_data_lookup
-                0x00000000100039c4       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x00000000100039c4                rom_data_lookup
+                0x0000000010003bdc       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x0000000010003bdc                rom_data_lookup
  .text.rom_funcs_lookup
-                0x00000000100039d4       0x44 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x00000000100039d4                rom_funcs_lookup
+                0x0000000010003bec       0x44 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x0000000010003bec                rom_funcs_lookup
  .text.__wrap___aeabi_idiv
-                0x0000000010003a18       0x50 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x0000000010003a18                __wrap___aeabi_idivmod
-                0x0000000010003a18                divmod_s32s32
-                0x0000000010003a18                div_s32s32
-                0x0000000010003a18                __wrap___aeabi_idiv
-                0x0000000010003a20                divmod_s32s32_unsafe
-                0x0000000010003a4c                divmod_s32s32_savestate
+                0x0000000010003c30       0x50 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x0000000010003c30                __wrap___aeabi_idivmod
+                0x0000000010003c30                divmod_s32s32
+                0x0000000010003c30                div_s32s32
+                0x0000000010003c30                __wrap___aeabi_idiv
+                0x0000000010003c38                divmod_s32s32_unsafe
+                0x0000000010003c64                divmod_s32s32_savestate
  .text.__wrap___aeabi_uidiv
-                0x0000000010003a68       0x4c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x0000000010003a68                __wrap___aeabi_uidiv
-                0x0000000010003a68                __wrap___aeabi_uidivmod
-                0x0000000010003a68                div_u32u32
-                0x0000000010003a68                divmod_u32u32
-                0x0000000010003a70                divmod_u32u32_unsafe
-                0x0000000010003a98                divmod_u32u32_savestate
+                0x0000000010003c80       0x4c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x0000000010003c80                __wrap___aeabi_uidiv
+                0x0000000010003c80                __wrap___aeabi_uidivmod
+                0x0000000010003c80                div_u32u32
+                0x0000000010003c80                divmod_u32u32
+                0x0000000010003c88                divmod_u32u32_unsafe
+                0x0000000010003cb0                divmod_u32u32_savestate
  .text.__wrap___aeabi_ldiv
-                0x0000000010003ab4      0x434 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x0000000010003ab4                div_s64s64
-                0x0000000010003ab4                divmod_s64s64
-                0x0000000010003ab4                __wrap___aeabi_ldivmod
-                0x0000000010003aec                div_u64u64
-                0x0000000010003aec                divmod_u64u64
-                0x0000000010003aec                __wrap___aeabi_uldivmod
-                0x0000000010003afc                divmod_u64u64_savestate
-                0x0000000010003b24                divmod_s64s64_unsafe
-                0x0000000010003bac                divmod_u64u64_unsafe
+                0x0000000010003ccc      0x434 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x0000000010003ccc                div_s64s64
+                0x0000000010003ccc                divmod_s64s64
+                0x0000000010003ccc                __wrap___aeabi_ldivmod
+                0x0000000010003d04                div_u64u64
+                0x0000000010003d04                divmod_u64u64
+                0x0000000010003d04                __wrap___aeabi_uldivmod
+                0x0000000010003d14                divmod_u64u64_savestate
+                0x0000000010003d3c                divmod_s64s64_unsafe
+                0x0000000010003dc4                divmod_u64u64_unsafe
  .text.__wrap___aeabi_darithmetic
-                0x0000000010003ee8       0x80 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010003ee8                __wrap___aeabi_drsub
-                0x0000000010003eee                __wrap___aeabi_dsub
-                0x0000000010003f00                __wrap___aeabi_dadd
-                0x0000000010003f12                __wrap___aeabi_ddiv
-                0x0000000010003f4e                __wrap___aeabi_dmul
+                0x0000000010004100       0x80 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010004100                __wrap___aeabi_drsub
+                0x0000000010004106                __wrap___aeabi_dsub
+                0x0000000010004118                __wrap___aeabi_dadd
+                0x000000001000412a                __wrap___aeabi_ddiv
+                0x0000000010004166                __wrap___aeabi_dmul
  .text.__wrap___aeabi_cdcmple
-                0x0000000010003f68       0x6c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010003f68                __wrap___aeabi_cdrcmple
-                0x0000000010003f78                __wrap___aeabi_cdcmple
-                0x0000000010003f78                __wrap___aeabi_cdcmpeq
+                0x0000000010004180       0x6c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010004180                __wrap___aeabi_cdrcmple
+                0x0000000010004190                __wrap___aeabi_cdcmple
+                0x0000000010004190                __wrap___aeabi_cdcmpeq
  .text.__wrap___aeabi_dcmplt
-                0x0000000010003fd4        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010003fd4                __wrap___aeabi_dcmplt
+                0x00000000100041ec        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x00000000100041ec                __wrap___aeabi_dcmplt
  .text.__wrap___aeabi_dcmple
-                0x0000000010003fe0       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010003fe0                __wrap___aeabi_dcmple
+                0x00000000100041f8       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x00000000100041f8                __wrap___aeabi_dcmple
  .text.__wrap___aeabi_dcmpge
-                0x0000000010003ff0       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010003ff0                __wrap___aeabi_dcmpge
+                0x0000000010004208       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010004208                __wrap___aeabi_dcmpge
  .text.__wrap___aeabi_dcmpgt
-                0x0000000010004000        0xa CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010004000                __wrap___aeabi_dcmpgt
+                0x0000000010004218        0xa CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010004218                __wrap___aeabi_dcmpgt
  .text.__wrap___aeabi_dcmpun
-                0x000000001000400a       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x000000001000400a                __wrap___aeabi_dcmpun
- *fill*         0x0000000010004026        0x2 
+                0x0000000010004222       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010004222                __wrap___aeabi_dcmpun
+ *fill*         0x000000001000423e        0x2 
  .text.__wrap___aeabi_i2d
-                0x0000000010004028       0x38 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010004028                __wrap___aeabi_ui2d
-                0x0000000010004030                __wrap___aeabi_i2d
+                0x0000000010004240       0x38 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010004240                __wrap___aeabi_ui2d
+                0x0000000010004248                __wrap___aeabi_i2d
  .text.__wrap___aeabi_d2iz
-                0x0000000010004060       0x48 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x0000000010004060                __wrap___aeabi_d2iz
-                0x0000000010004060                double2int_z
+                0x0000000010004278       0x48 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x0000000010004278                __wrap___aeabi_d2iz
+                0x0000000010004278                double2int_z
  .text.__wrap___aeabi_d2uiz
-                0x00000000100040a8       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x00000000100040a8                double2uint
-                0x00000000100040a8                __wrap___aeabi_d2uiz
+                0x00000000100042c0       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x00000000100042c0                double2uint
+                0x00000000100042c0                __wrap___aeabi_d2uiz
  .text.__wrap___aeabi_d2f
-                0x00000000100040c0       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
-                0x00000000100040c0                __wrap___aeabi_d2f
+                0x00000000100042d8       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+                0x00000000100042d8                __wrap___aeabi_d2f
  .text.__aeabi_double_init
-                0x00000000100040d8       0x94 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-                0x00000000100040d8                __aeabi_double_init
+                0x00000000100042f0       0x94 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                0x00000000100042f0                __aeabi_double_init
  .text.double_table_shim_on_use_helper
-                0x000000001000416c       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x000000001000416c                double_table_shim_on_use_helper
+                0x0000000010004384       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x0000000010004384                double_table_shim_on_use_helper
  .text.__wrap___aeabi_dsub
-                0x0000000010004198       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x0000000010004198                drsub_shim
-                0x000000001000419e                dsub_shim
+                0x00000000100043b0       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x00000000100043b0                drsub_shim
+                0x00000000100043b6                dsub_shim
  .text.dadd_shim
-                0x00000000100041a8      0x15c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x00000000100041a8                dadd_shim
+                0x00000000100043c0      0x15c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x00000000100043c0                dadd_shim
  .text.dmul_shim
-                0x0000000010004304      0x15c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x0000000010004304                dmul_shim
+                0x000000001000451c      0x15c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x000000001000451c                dmul_shim
  .text.ddiv_shim
-                0x0000000010004460      0x1b0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x0000000010004460                ddiv_shim
+                0x0000000010004678      0x1b0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x0000000010004678                ddiv_shim
  .text.double2uint_shim
-                0x0000000010004610        0xe CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x0000000010004610                double2uint_shim
-                0x0000000010004612                double2ufix_shim
- *fill*         0x000000001000461e        0x2 
+                0x0000000010004828        0xe CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x0000000010004828                double2uint_shim
+                0x000000001000482a                double2ufix_shim
+ *fill*         0x0000000010004836        0x2 
  .text.double2uint64_shim
-                0x0000000010004620       0x70 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x0000000010004620                double2uint64_shim
-                0x0000000010004622                double2ufix64_shim
-                0x0000000010004642                d2fix_a
+                0x0000000010004838       0x70 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x0000000010004838                double2uint64_shim
+                0x000000001000483a                double2ufix64_shim
+                0x000000001000485a                d2fix_a
  .text.double2float_shim
-                0x0000000010004690       0x5c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x0000000010004690                double2float_shim
+                0x00000000100048a8       0x5c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x00000000100048a8                double2float_shim
  .text.dunpacks
-                0x00000000100046ec       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x00000000100046ec                dunpacks
+                0x0000000010004904       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x0000000010004904                dunpacks
  .text.__aeabi_lmul
-                0x0000000010004728       0x32 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-                0x0000000010004728                __wrap___aeabi_lmul
- *fill*         0x000000001000475a        0x2 
+                0x0000000010004940       0x32 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+                0x0000000010004940                __wrap___aeabi_lmul
+ *fill*         0x0000000010004972        0x2 
  .text.__wrap___aeabi_farithmetic
-                0x000000001000475c       0x48 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x000000001000475c                __wrap___aeabi_frsub
-                0x0000000010004762                __wrap___aeabi_fsub
-                0x0000000010004768                __wrap___aeabi_fadd
-                0x000000001000476e                __wrap___aeabi_fdiv
-                0x0000000010004796                __wrap___aeabi_fmul
+                0x0000000010004974       0x48 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010004974                __wrap___aeabi_frsub
+                0x000000001000497a                __wrap___aeabi_fsub
+                0x0000000010004980                __wrap___aeabi_fadd
+                0x0000000010004986                __wrap___aeabi_fdiv
+                0x00000000100049ae                __wrap___aeabi_fmul
  .text.__wrap___aeabi_ui2f
-                0x00000000100047a4        0xa CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x00000000100047a4                __wrap___aeabi_ui2f
- *fill*         0x00000000100047ae        0x2 
+                0x00000000100049bc        0xa CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x00000000100049bc                __wrap___aeabi_ui2f
+ *fill*         0x00000000100049c6        0x2 
  .text.__wrap___aeabi_i2f
-                0x00000000100047b0       0x44 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x00000000100047b0                __wrap___aeabi_i2f
+                0x00000000100049c8       0x44 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x00000000100049c8                __wrap___aeabi_i2f
  .text.__wrap___aeabi_f2iz
-                0x00000000100047f4       0x4e CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x00000000100047f4                __wrap___aeabi_f2iz
-                0x00000000100047f4                float2int_z
- *fill*         0x0000000010004842        0x2 
+                0x0000000010004a0c       0x4e CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010004a0c                __wrap___aeabi_f2iz
+                0x0000000010004a0c                float2int_z
+ *fill*         0x0000000010004a5a        0x2 
  .text.float2int
-                0x0000000010004844       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x0000000010004844                float2int
+                0x0000000010004a5c       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010004a5c                float2int
  .text.__wrap___aeabi_f2uiz
-                0x0000000010004858        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x0000000010004858                __wrap___aeabi_f2uiz
+                0x0000000010004a70        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010004a70                __wrap___aeabi_f2uiz
  .text.__wrap___aeabi_f2d
-                0x0000000010004864       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
-                0x0000000010004864                __wrap___aeabi_f2d
+                0x0000000010004a7c       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+                0x0000000010004a7c                __wrap___aeabi_f2d
  .text.__aeabi_float_init
-                0x0000000010004878       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-                0x0000000010004878                __aeabi_float_init
+                0x0000000010004a90       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+                0x0000000010004a90                __aeabi_float_init
  .text.float_table_shim_on_use_helper
-                0x00000000100048dc       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-                0x00000000100048dc                float_table_shim_on_use_helper
+                0x0000000010004af4       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+                0x0000000010004af4                float_table_shim_on_use_helper
  .text.float232_shims
-                0x0000000010004908       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-                0x0000000010004908                float2int_shim
-                0x000000001000490a                float2fix_shim
+                0x0000000010004b20       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+                0x0000000010004b20                float2int_shim
+                0x0000000010004b22                float2fix_shim
  .text.float2double_shim
-                0x0000000010004920       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-                0x0000000010004920                float2double_shim
+                0x0000000010004b38       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+                0x0000000010004b38                float2double_shim
  .text.__wrap_malloc
-                0x0000000010004950       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-                0x0000000010004950                __wrap_malloc
+                0x0000000010004b68       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x0000000010004b68                __wrap_malloc
  .text.__wrap_free
-                0x0000000010004974        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
-                0x0000000010004974                __wrap_free
- .text          0x000000001000497c       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x000000001000497c                __aeabi_mem_init
- .text.memset   0x000000001000498c        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x000000001000498c                __wrap_memset
- .text.memcpy   0x0000000010004998        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x0000000010004998                __wrap___aeabi_memcpy
-                0x0000000010004998                __wrap_memcpy
+                0x0000000010004b8c        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+                0x0000000010004b8c                __wrap_free
+ .text          0x0000000010004b94       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x0000000010004b94                __aeabi_mem_init
+ .text.memset   0x0000000010004ba4        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x0000000010004ba4                __wrap_memset
+ .text.memcpy   0x0000000010004bb0        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x0000000010004bb0                __wrap___aeabi_memcpy
+                0x0000000010004bb0                __wrap_memcpy
  .text.stdio_out_chars_no_crlf
-                0x00000000100049a4       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004bbc       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_out_chars_crlf
-                0x00000000100049b4       0xb4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004bcc       0xb4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_buffered_printer
-                0x0000000010004a68       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004c80       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.stdio_put_string.isra.0
-                0x0000000010004acc       0xfc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004ce4       0xfc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.__wrap_putchar
-                0x0000000010004bc8       0xa0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010004bc8                __wrap_putchar
+                0x0000000010004de0       0xa0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004de0                __wrap_putchar
  .text.__wrap_puts
-                0x0000000010004c68       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010004c68                __wrap_puts
+                0x0000000010004e80       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004e80                __wrap_puts
  .text.stdio_set_driver_enabled
-                0x0000000010004ca4       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010004ca4                stdio_set_driver_enabled
+                0x0000000010004ebc       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004ebc                stdio_set_driver_enabled
  .text.__wrap_vprintf
-                0x0000000010004cd4       0xd8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010004cd4                __wrap_vprintf
+                0x0000000010004eec       0xd8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004eec                __wrap_vprintf
  .text.__wrap_printf
-                0x0000000010004dac       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010004dac                __wrap_printf
+                0x0000000010004fc4       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004fc4                __wrap_printf
  .text.stdio_init_all
-                0x0000000010004dc4        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x0000000010004dc4                stdio_init_all
+                0x0000000010004fdc        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x0000000010004fdc                stdio_init_all
  .text.resetd_init
-                0x0000000010004dcc        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x0000000010004fe4        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_reset
-                0x0000000010004dd0        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x0000000010004fe8        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_open
-                0x0000000010004ddc       0x28 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x0000000010004ff4       0x28 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_xfer_cb
-                0x0000000010004e04        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x000000001000501c        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_control_xfer_cb
-                0x0000000010004e08       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x0000000010005020       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.usbd_app_driver_get_cb
-                0x0000000010004e6c        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
-                0x0000000010004e6c                usbd_app_driver_get_cb
+                0x0000000010005084        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x0000000010005084                usbd_app_driver_get_cb
  .text.tud_cdc_line_coding_cb
-                0x0000000010004e78       0x34 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
-                0x0000000010004e78                tud_cdc_line_coding_cb
+                0x0000000010005090       0x34 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x0000000010005090                tud_cdc_line_coding_cb
  .text.stdio_usb_in_chars
-                0x0000000010004eac       0x68 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x0000000010004eac                stdio_usb_in_chars
+                0x00000000100050c4       0x68 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x00000000100050c4                stdio_usb_in_chars
  .text.stdio_usb_out_chars
-                0x0000000010004f14       0xe4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x000000001000512c       0xe4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.timer_task
-                0x0000000010004ff8       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .text.usb_irq  0x0000000010005010       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x0000000010005210       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .text.usb_irq  0x0000000010005228       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.low_priority_worker_irq
-                0x0000000010005020       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x0000000010005238       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.stdio_usb_init
-                0x0000000010005044       0xb0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x0000000010005044                stdio_usb_init
+                0x000000001000525c       0xb0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x000000001000525c                stdio_usb_init
  .text.tud_descriptor_device_cb
-                0x00000000100050f4        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x00000000100050f4                tud_descriptor_device_cb
+                0x000000001000530c        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x000000001000530c                tud_descriptor_device_cb
  .text.tud_descriptor_configuration_cb
-                0x00000000100050fc        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x00000000100050fc                tud_descriptor_configuration_cb
+                0x0000000010005314        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x0000000010005314                tud_descriptor_configuration_cb
  .text.tud_descriptor_string_cb
-                0x0000000010005104       0x74 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x0000000010005104                tud_descriptor_string_cb
+                0x000000001000531c       0x74 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x000000001000531c                tud_descriptor_string_cb
  .text.dcd_rp2040_irq
-                0x0000000010005178      0x21c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x0000000010005390      0x21c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .text.dcd_int_enable
-                0x0000000010005394        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x0000000010005394                dcd_int_enable
+                0x00000000100055ac        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x00000000100055ac                dcd_int_enable
  .text.dcd_set_address
-                0x00000000100053a0       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x00000000100053a0                dcd_set_address
+                0x00000000100055b8       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x00000000100055b8                dcd_set_address
  .text.dcd_connect
-                0x00000000100053b4       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x00000000100053b4                dcd_connect
+                0x00000000100055cc       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x00000000100055cc                dcd_connect
  .text.dcd_init
-                0x00000000100053c4      0x144 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x00000000100053c4                dcd_init
+                0x00000000100055dc      0x144 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x00000000100055dc                dcd_init
  .text.dcd_edpt0_status_complete
-                0x0000000010005508       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x0000000010005508                dcd_edpt0_status_complete
+                0x0000000010005720       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x0000000010005720                dcd_edpt0_status_complete
  .text.dcd_edpt_open
-                0x0000000010005524       0xf0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x0000000010005524                dcd_edpt_open
+                0x000000001000573c       0xf0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x000000001000573c                dcd_edpt_open
  .text.dcd_edpt_close_all
-                0x0000000010005614       0xbc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x0000000010005614                dcd_edpt_close_all
+                0x000000001000582c       0xbc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x000000001000582c                dcd_edpt_close_all
  .text.dcd_edpt_xfer
-                0x00000000100056d0       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x00000000100056d0                dcd_edpt_xfer
+                0x00000000100058e8       0x24 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x00000000100058e8                dcd_edpt_xfer
  .text.dcd_edpt_stall
-                0x00000000100056f4       0x38 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x00000000100056f4                dcd_edpt_stall
+                0x000000001000590c       0x38 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x000000001000590c                dcd_edpt_stall
  .text.dcd_edpt_clear_stall
-                0x000000001000572c       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x000000001000572c                dcd_edpt_clear_stall
+                0x0000000010005944       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x0000000010005944                dcd_edpt_clear_stall
  .text._hw_endpoint_buffer_control_update32.part.0.isra.0
-                0x000000001000575c       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x0000000010005974       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
  .text.rp2040_usb_init
-                0x0000000010005778       0x4c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x0000000010005778                rp2040_usb_init
+                0x0000000010005990       0x4c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x0000000010005990                rp2040_usb_init
  .text.hw_endpoint_reset_transfer
-                0x00000000100057c4        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x00000000100057c4                hw_endpoint_reset_transfer
+                0x00000000100059dc        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x00000000100059dc                hw_endpoint_reset_transfer
  .text._hw_endpoint_buffer_control_update32
-                0x00000000100057d0       0x44 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x00000000100057d0                _hw_endpoint_buffer_control_update32
+                0x00000000100059e8       0x44 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x00000000100059e8                _hw_endpoint_buffer_control_update32
  .text.hw_endpoint_xfer_start
-                0x0000000010005814      0x138 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x0000000010005814                hw_endpoint_xfer_start
+                0x0000000010005a2c      0x138 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x0000000010005a2c                hw_endpoint_xfer_start
  .text.hw_endpoint_xfer_continue
-                0x000000001000594c      0x1e4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x000000001000594c                hw_endpoint_xfer_continue
+                0x0000000010005b64      0x1e4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x0000000010005b64                hw_endpoint_xfer_continue
  .text.tud_mounted
-                0x0000000010005b30       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010005b30                tud_mounted
+                0x0000000010005d48       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010005d48                tud_mounted
  .text.tud_suspended
-                0x0000000010005b40       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010005b40                tud_suspended
+                0x0000000010005d58       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010005d58                tud_suspended
  .text.tud_inited
-                0x0000000010005b50        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010005b50                tud_inited
+                0x0000000010005d68        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010005d68                tud_inited
  .text.tud_init
-                0x0000000010005b5c       0xd8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010005b5c                tud_init
+                0x0000000010005d74       0xd8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010005d74                tud_init
  .text.tud_task
-                0x0000000010005c34      0x8ec CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010005c34                tud_task
+                0x0000000010005e4c      0x8ec CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010005e4c                tud_task
  .text.dcd_event_bus_signal
-                0x0000000010006520      0x120 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010006520                dcd_event_bus_signal
+                0x0000000010006738      0x120 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010006738                dcd_event_bus_signal
  .text.dcd_event_bus_reset
-                0x0000000010006640       0x54 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010006640                dcd_event_bus_reset
+                0x0000000010006858       0x54 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010006858                dcd_event_bus_reset
  .text.dcd_event_setup_received
-                0x0000000010006694       0x50 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010006694                dcd_event_setup_received
+                0x00000000100068ac       0x50 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x00000000100068ac                dcd_event_setup_received
  .text.dcd_event_xfer_complete
-                0x00000000100066e4       0x68 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x00000000100066e4                dcd_event_xfer_complete
+                0x00000000100068fc       0x68 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x00000000100068fc                dcd_event_xfer_complete
  .text.usbd_open_edpt_pair
-                0x000000001000674c       0x80 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x000000001000674c                usbd_open_edpt_pair
+                0x0000000010006964       0x80 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010006964                usbd_open_edpt_pair
  .text.usbd_edpt_open
-                0x00000000100067cc       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x00000000100067cc                usbd_edpt_open
+                0x00000000100069e4       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x00000000100069e4                usbd_edpt_open
  .text.usbd_edpt_claim
-                0x00000000100067fc       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x00000000100067fc                usbd_edpt_claim
+                0x0000000010006a14       0x64 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010006a14                usbd_edpt_claim
  .text.usbd_edpt_release
-                0x0000000010006860       0x4c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x0000000010006860                usbd_edpt_release
+                0x0000000010006a78       0x4c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010006a78                usbd_edpt_release
  .text.usbd_edpt_xfer
-                0x00000000100068ac       0x48 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x00000000100068ac                usbd_edpt_xfer
+                0x0000000010006ac4       0x48 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000010006ac4                usbd_edpt_xfer
  .text.tud_control_status
-                0x00000000100068f4       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x00000000100068f4                tud_control_status
+                0x0000000010006b0c       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x0000000010006b0c                tud_control_status
  .text.tud_control_xfer
-                0x0000000010006924       0xbc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x0000000010006924                tud_control_xfer
+                0x0000000010006b3c       0xbc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x0000000010006b3c                tud_control_xfer
  .text.usbd_control_reset
-                0x00000000100069e0       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x00000000100069e0                usbd_control_reset
+                0x0000000010006bf8       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x0000000010006bf8                usbd_control_reset
  .text.usbd_control_set_complete_callback
-                0x00000000100069f4        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x00000000100069f4                usbd_control_set_complete_callback
+                0x0000000010006c0c        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x0000000010006c0c                usbd_control_set_complete_callback
  .text.usbd_control_set_request
-                0x0000000010006a00       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x0000000010006a00                usbd_control_set_request
+                0x0000000010006c18       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x0000000010006c18                usbd_control_set_request
  .text.usbd_control_xfer_cb
-                0x0000000010006a1c       0xfc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x0000000010006a1c                usbd_control_xfer_cb
+                0x0000000010006c34       0xfc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x0000000010006c34                usbd_control_xfer_cb
  .text.tud_cdc_n_connected
-                0x0000000010006b18       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006b18                tud_cdc_n_connected
+                0x0000000010006d30       0x30 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006d30                tud_cdc_n_connected
  .text.tud_cdc_n_available
-                0x0000000010006b48       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006b48                tud_cdc_n_available
+                0x0000000010006d60       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006d60                tud_cdc_n_available
  .text.tud_cdc_n_read
-                0x0000000010006b60       0x70 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006b60                tud_cdc_n_read
+                0x0000000010006d78       0x70 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006d78                tud_cdc_n_read
  .text.tud_cdc_n_write_flush
-                0x0000000010006bd0       0x78 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006bd0                tud_cdc_n_write_flush
+                0x0000000010006de8       0x78 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006de8                tud_cdc_n_write_flush
  .text.tud_cdc_n_write
-                0x0000000010006c48       0x34 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006c48                tud_cdc_n_write
+                0x0000000010006e60       0x34 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006e60                tud_cdc_n_write
  .text.tud_cdc_n_write_available
-                0x0000000010006c7c       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006c7c                tud_cdc_n_write_available
+                0x0000000010006e94       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006e94                tud_cdc_n_write_available
  .text.cdcd_init
-                0x0000000010006c94       0x7c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006c94                cdcd_init
+                0x0000000010006eac       0x7c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006eac                cdcd_init
  .text.cdcd_reset
-                0x0000000010006d10       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006d10                cdcd_reset
+                0x0000000010006f28       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006f28                cdcd_reset
  .text.cdcd_open
-                0x0000000010006d3c       0xe4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006d3c                cdcd_open
+                0x0000000010006f54       0xe4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010006f54                cdcd_open
  .text.cdcd_control_xfer_cb
-                0x0000000010006e20       0xe4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006e20                cdcd_control_xfer_cb
+                0x0000000010007038       0xe4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x0000000010007038                cdcd_control_xfer_cb
  .text.cdcd_xfer_cb
-                0x0000000010006f04      0x148 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x0000000010006f04                cdcd_xfer_cb
+                0x000000001000711c      0x148 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x000000001000711c                cdcd_xfer_cb
  .text.tusb_init
-                0x000000001000704c        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x000000001000704c                tusb_init
+                0x0000000010007264        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x0000000010007264                tusb_init
  .text.tusb_inited
-                0x0000000010007058        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x0000000010007058                tusb_inited
+                0x0000000010007270        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x0000000010007270                tusb_inited
  .text.tu_edpt_validate
-                0x0000000010007060       0x78 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x0000000010007060                tu_edpt_validate
+                0x0000000010007278       0x78 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x0000000010007278                tu_edpt_validate
  .text.tu_edpt_bind_driver
-                0x00000000100070d8       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x00000000100070d8                tu_edpt_bind_driver
+                0x00000000100072f0       0x2c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x00000000100072f0                tu_edpt_bind_driver
  .text.tu_fifo_config
-                0x0000000010007104       0x78 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x0000000010007104                tu_fifo_config
+                0x000000001000731c       0x78 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x000000001000731c                tu_fifo_config
  .text.tu_fifo_count
-                0x000000001000717c       0x20 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x000000001000717c                tu_fifo_count
+                0x0000000010007394       0x20 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x0000000010007394                tu_fifo_count
  .text.tu_fifo_empty
-                0x000000001000719c       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x000000001000719c                tu_fifo_empty
+                0x00000000100073b4       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x00000000100073b4                tu_fifo_empty
  .text.tu_fifo_remaining
-                0x00000000100071ac       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x00000000100071ac                tu_fifo_remaining
+                0x00000000100073c4       0x1c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x00000000100073c4                tu_fifo_remaining
  .text.tu_fifo_read
-                0x00000000100071c8       0x9c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x00000000100071c8                tu_fifo_read
+                0x00000000100073e0       0x9c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x00000000100073e0                tu_fifo_read
  .text.tu_fifo_read_n
-                0x0000000010007264      0x100 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x0000000010007264                tu_fifo_read_n
+                0x000000001000747c      0x100 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x000000001000747c                tu_fifo_read_n
  .text.tu_fifo_write
-                0x0000000010007364       0x7c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x0000000010007364                tu_fifo_write
+                0x000000001000757c       0x7c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x000000001000757c                tu_fifo_write
  .text.tu_fifo_write_n
-                0x00000000100073e0      0x100 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x00000000100073e0                tu_fifo_write_n
+                0x00000000100075f8      0x100 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x00000000100075f8                tu_fifo_write_n
  .text.tu_fifo_clear
-                0x00000000100074e0       0x4c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x00000000100074e0                tu_fifo_clear
+                0x00000000100076f8       0x4c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x00000000100076f8                tu_fifo_clear
  .text.tu_fifo_set_overwritable
-                0x000000001000752c       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x000000001000752c                tu_fifo_set_overwritable
+                0x0000000010007744       0x3c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x0000000010007744                tu_fifo_set_overwritable
  .text.startup._retrieve_unique_id_on_boot
-                0x0000000010007568       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x0000000010007780       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
  .text.pico_get_unique_board_id_string
-                0x0000000010007578      0x1a8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
-                0x0000000010007578                pico_get_unique_board_id_string
+                0x0000000010007790      0x1a8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x0000000010007790                pico_get_unique_board_id_string
  .text.flash_get_unique_id
-                0x0000000010007720       0x40 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
-                0x0000000010007720                flash_get_unique_id
+                0x0000000010007938       0x40 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+                0x0000000010007938                flash_get_unique_id
  .text.i2c_set_baudrate
-                0x0000000010007760       0xc4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x0000000010007760                i2c_set_baudrate
+                0x0000000010007978       0xc4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x0000000010007978                i2c_set_baudrate
  .text.i2c_init
-                0x0000000010007824       0x54 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x0000000010007824                i2c_init
+                0x0000000010007a3c       0x54 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x0000000010007a3c                i2c_init
  .text.i2c_write_blocking
-                0x0000000010007878       0xd0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x0000000010007878                i2c_write_blocking
+                0x0000000010007a90       0xd0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x0000000010007a90                i2c_write_blocking
  .text.i2c_read_blocking
-                0x0000000010007948       0xac CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-                0x0000000010007948                i2c_read_blocking
- .text          0x00000000100079f4     0x1530 ../FreeRTOS/libfreertos.a(tasks.c.obj)
-                0x0000000010007bd0                xTaskCreate
-                0x0000000010007dfc                vTaskDelete
-                0x0000000010007e94                uxTaskPriorityGet
-                0x0000000010007eb4                uxTaskPriorityGetFromISR
-                0x0000000010007ed4                vTaskPrioritySet
-                0x0000000010007f90                vTaskSuspend
-                0x00000000100080d0                vTaskResume
-                0x0000000010008154                xTaskResumeFromISR
-                0x00000000100081f4                vTaskStartScheduler
-                0x0000000010008360                vTaskEndScheduler
-                0x0000000010008374                vTaskSuspendAll
-                0x0000000010008384                xTaskResumeAll
-                0x00000000100084b8                xTaskDelayUntil
-                0x0000000010008534                vTaskDelay
-                0x0000000010008588                xTaskGetTickCount
-                0x0000000010008594                xTaskGetTickCountFromISR
-                0x00000000100085a0                uxTaskGetNumberOfTasks
-                0x00000000100085ac                pcTaskGetName
-                0x00000000100085c0                xTaskCatchUpTicks
-                0x00000000100085ec                xTaskIncrementTick
-                0x0000000010008610                vTaskSwitchContext
-                0x00000000100086b4                vTaskPlaceOnEventList
-                0x0000000010008728                vTaskPlaceOnUnorderedEventList
-                0x00000000100087c4                vTaskPlaceOnEventListRestricted
-                0x0000000010008860                xTaskRemoveFromEventList
-                0x0000000010008928                vTaskRemoveFromUnorderedEventList
-                0x00000000100089bc                vTaskSetTimeOutState
-                0x00000000100089d8                vTaskInternalSetTimeOutState
-                0x00000000100089e8                xTaskCheckForTimeOut
-                0x0000000010008a38                vTaskMissedYield
-                0x0000000010008a44                vTaskSetThreadLocalStoragePointer
-                0x0000000010008a60                pvTaskGetThreadLocalStoragePointer
-                0x0000000010008a80                xTaskGetCurrentTaskHandle
-                0x0000000010008a8c                xTaskGetSchedulerState
-                0x0000000010008aa4                uxTaskResetEventItemValue
-                0x0000000010008abc                ulTaskGenericNotifyTake
-                0x0000000010008b38                xTaskGenericNotifyWait
-                0x0000000010008bd4                xTaskGenericNotify
-                0x0000000010008cbc                xTaskGenericNotifyFromISR
-                0x0000000010008de4                vTaskGenericNotifyGiveFromISR
-                0x0000000010008ec4                xTaskGenericNotifyStateClear
-                0x0000000010008ef4                ulTaskGenericNotifyValueClear
- .text          0x0000000010008f24      0x534 ../FreeRTOS/libfreertos.a(timers.c.obj)
-                0x000000001000923c                xTimerCreateTimerTask
-                0x00000000100092b0                xTimerCreate
-                0x0000000010009358                xTimerGenericCommand
-                0x00000000100093ac                xTimerGetTimerDaemonTaskHandle
-                0x00000000100093b8                xTimerGetPeriod
-                0x00000000100093bc                vTimerSetReloadMode
-                0x00000000100093e0                xTimerGetReloadMode
-                0x00000000100093f8                uxTimerGetReloadMode
-                0x0000000010009410                xTimerGetExpiryTime
-                0x0000000010009414                pcTimerGetName
-                0x0000000010009418                xTimerIsTimerActive
-                0x0000000010009430                pvTimerGetTimerID
-                0x0000000010009444                vTimerSetTimerID
- .text          0x0000000010009458       0x30 ../FreeRTOS/libfreertos.a(heap_3.c.obj)
-                0x0000000010009458                pvPortMalloc
-                0x0000000010009470                vPortFree
- *fill*         0x0000000010009488        0x8 
- .text          0x0000000010009490      0x194 ../FreeRTOS/libfreertos.a(port.c.obj)
-                0x00000000100094d4                pxPortInitialiseStack
-                0x00000000100094f4                isr_svcall
-                0x00000000100094f8                vPortEndScheduler
-                0x00000000100094fc                vPortYield
-                0x0000000010009514                vPortEnterCritical
-                0x000000001000952c                vPortExitCritical
-                0x0000000010009540                ulSetInterruptMaskFromISR
-                0x0000000010009548                vClearInterruptMaskFromISR
-                0x0000000010009550                isr_pendsv
-                0x0000000010009594                isr_systick
-                0x00000000100095b8                vPortSetupTimerInterrupt
-                0x00000000100095e0                xPortStartScheduler
- .text          0x0000000010009624       0x8c ../FreeRTOS/libfreertos.a(list.c.obj)
-                0x0000000010009624                vListInitialise
-                0x000000001000963c                vListInitialiseItem
-                0x0000000010009644                vListInsertEnd
-                0x000000001000965c                vListInsert
-                0x000000001000968c                uxListRemove
- .text          0x00000000100096b0     0x11fc ../FreeRTOS/libfreertos.a(queue.c.obj)
-                0x00000000100096b0                xQueueGenericReset
-                0x0000000010009750                xQueueGenericCreate
-                0x00000000100097e8                xQueueGenericSend
-                0x0000000010009b00                xQueueGenericSendFromISR
-                0x0000000010009c18                xQueueGiveFromISR
-                0x0000000010009c84                xQueueReceive
-                0x0000000010009f24                xQueueSemaphoreTake
-                0x000000001000a1a8                xQueuePeek
-                0x000000001000a444                xQueueReceiveFromISR
-                0x000000001000a4d4                xQueuePeekFromISR
-                0x000000001000a514                uxQueueMessagesWaiting
-                0x000000001000a528                uxQueueSpacesAvailable
-                0x000000001000a540                uxQueueMessagesWaitingFromISR
-                0x000000001000a544                vQueueDelete
-                0x000000001000a5c4                xQueueIsQueueEmptyFromISR
-                0x000000001000a5cc                xQueueIsQueueFullFromISR
-                0x000000001000a5d8                vQueueAddToRegistry
-                0x000000001000a6f0                pcQueueGetName
-                0x000000001000a764                vQueueUnregisterQueue
-                0x000000001000a7dc                vQueueWaitForMessageRestricted
- .text          0x000000001000a8ac       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-malloc.o)
-                0x000000001000a8ac                malloc
-                0x000000001000a8c0                free
- .text          0x000000001000a8d4      0x574 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mallocr.o)
-                0x000000001000a8d4                _malloc_r
- .text          0x000000001000ae48        0x8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mlock.o)
-                0x000000001000ae48                __malloc_lock
-                0x000000001000ae4c                __malloc_unlock
- .text          0x000000001000ae50       0x24 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-sbrkr.o)
-                0x000000001000ae50                _sbrk_r
- .text          0x000000001000ae74       0x5c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strlen-stub.o)
-                0x000000001000ae74                strlen
- .text          0x000000001000aed0      0x260 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-freer.o)
-                0x000000001000aed0                _malloc_trim_r
-                0x000000001000af6c                _free_r
+                0x0000000010007b60       0xac CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+                0x0000000010007b60                i2c_read_blocking
+ .text          0x0000000010007c0c     0x1530 ../FreeRTOS/libfreertos.a(tasks.c.obj)
+                0x0000000010007de8                xTaskCreate
+                0x0000000010008014                vTaskDelete
+                0x00000000100080ac                uxTaskPriorityGet
+                0x00000000100080cc                uxTaskPriorityGetFromISR
+                0x00000000100080ec                vTaskPrioritySet
+                0x00000000100081a8                vTaskSuspend
+                0x00000000100082e8                vTaskResume
+                0x000000001000836c                xTaskResumeFromISR
+                0x000000001000840c                vTaskStartScheduler
+                0x0000000010008578                vTaskEndScheduler
+                0x000000001000858c                vTaskSuspendAll
+                0x000000001000859c                xTaskResumeAll
+                0x00000000100086d0                xTaskDelayUntil
+                0x000000001000874c                vTaskDelay
+                0x00000000100087a0                xTaskGetTickCount
+                0x00000000100087ac                xTaskGetTickCountFromISR
+                0x00000000100087b8                uxTaskGetNumberOfTasks
+                0x00000000100087c4                pcTaskGetName
+                0x00000000100087d8                xTaskCatchUpTicks
+                0x0000000010008804                xTaskIncrementTick
+                0x0000000010008828                vTaskSwitchContext
+                0x00000000100088cc                vTaskPlaceOnEventList
+                0x0000000010008940                vTaskPlaceOnUnorderedEventList
+                0x00000000100089dc                vTaskPlaceOnEventListRestricted
+                0x0000000010008a78                xTaskRemoveFromEventList
+                0x0000000010008b40                vTaskRemoveFromUnorderedEventList
+                0x0000000010008bd4                vTaskSetTimeOutState
+                0x0000000010008bf0                vTaskInternalSetTimeOutState
+                0x0000000010008c00                xTaskCheckForTimeOut
+                0x0000000010008c50                vTaskMissedYield
+                0x0000000010008c5c                vTaskSetThreadLocalStoragePointer
+                0x0000000010008c78                pvTaskGetThreadLocalStoragePointer
+                0x0000000010008c98                xTaskGetCurrentTaskHandle
+                0x0000000010008ca4                xTaskGetSchedulerState
+                0x0000000010008cbc                uxTaskResetEventItemValue
+                0x0000000010008cd4                ulTaskGenericNotifyTake
+                0x0000000010008d50                xTaskGenericNotifyWait
+                0x0000000010008dec                xTaskGenericNotify
+                0x0000000010008ed4                xTaskGenericNotifyFromISR
+                0x0000000010008ffc                vTaskGenericNotifyGiveFromISR
+                0x00000000100090dc                xTaskGenericNotifyStateClear
+                0x000000001000910c                ulTaskGenericNotifyValueClear
+ .text          0x000000001000913c      0x534 ../FreeRTOS/libfreertos.a(timers.c.obj)
+                0x0000000010009454                xTimerCreateTimerTask
+                0x00000000100094c8                xTimerCreate
+                0x0000000010009570                xTimerGenericCommand
+                0x00000000100095c4                xTimerGetTimerDaemonTaskHandle
+                0x00000000100095d0                xTimerGetPeriod
+                0x00000000100095d4                vTimerSetReloadMode
+                0x00000000100095f8                xTimerGetReloadMode
+                0x0000000010009610                uxTimerGetReloadMode
+                0x0000000010009628                xTimerGetExpiryTime
+                0x000000001000962c                pcTimerGetName
+                0x0000000010009630                xTimerIsTimerActive
+                0x0000000010009648                pvTimerGetTimerID
+                0x000000001000965c                vTimerSetTimerID
+ .text          0x0000000010009670       0x30 ../FreeRTOS/libfreertos.a(heap_3.c.obj)
+                0x0000000010009670                pvPortMalloc
+                0x0000000010009688                vPortFree
+ .text          0x00000000100096a0      0x194 ../FreeRTOS/libfreertos.a(port.c.obj)
+                0x00000000100096e4                pxPortInitialiseStack
+                0x0000000010009704                isr_svcall
+                0x0000000010009708                vPortEndScheduler
+                0x000000001000970c                vPortYield
+                0x0000000010009724                vPortEnterCritical
+                0x000000001000973c                vPortExitCritical
+                0x0000000010009750                ulSetInterruptMaskFromISR
+                0x0000000010009758                vClearInterruptMaskFromISR
+                0x0000000010009760                isr_pendsv
+                0x00000000100097a4                isr_systick
+                0x00000000100097c8                vPortSetupTimerInterrupt
+                0x00000000100097f0                xPortStartScheduler
+ .text          0x0000000010009834       0x8c ../FreeRTOS/libfreertos.a(list.c.obj)
+                0x0000000010009834                vListInitialise
+                0x000000001000984c                vListInitialiseItem
+                0x0000000010009854                vListInsertEnd
+                0x000000001000986c                vListInsert
+                0x000000001000989c                uxListRemove
+ .text          0x00000000100098c0     0x11fc ../FreeRTOS/libfreertos.a(queue.c.obj)
+                0x00000000100098c0                xQueueGenericReset
+                0x0000000010009960                xQueueGenericCreate
+                0x00000000100099f8                xQueueGenericSend
+                0x0000000010009d10                xQueueGenericSendFromISR
+                0x0000000010009e28                xQueueGiveFromISR
+                0x0000000010009e94                xQueueReceive
+                0x000000001000a134                xQueueSemaphoreTake
+                0x000000001000a3b8                xQueuePeek
+                0x000000001000a654                xQueueReceiveFromISR
+                0x000000001000a6e4                xQueuePeekFromISR
+                0x000000001000a724                uxQueueMessagesWaiting
+                0x000000001000a738                uxQueueSpacesAvailable
+                0x000000001000a750                uxQueueMessagesWaitingFromISR
+                0x000000001000a754                vQueueDelete
+                0x000000001000a7d4                xQueueIsQueueEmptyFromISR
+                0x000000001000a7dc                xQueueIsQueueFullFromISR
+                0x000000001000a7e8                vQueueAddToRegistry
+                0x000000001000a900                pcQueueGetName
+                0x000000001000a974                vQueueUnregisterQueue
+                0x000000001000a9ec                vQueueWaitForMessageRestricted
+ .text          0x000000001000aabc       0x28 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-malloc.o)
+                0x000000001000aabc                malloc
+                0x000000001000aad0                free
+ .text          0x000000001000aae4      0x574 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mallocr.o)
+                0x000000001000aae4                _malloc_r
+ .text          0x000000001000b058        0x8 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-mlock.o)
+                0x000000001000b058                __malloc_lock
+                0x000000001000b05c                __malloc_unlock
+ .text          0x000000001000b060       0x24 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-sbrkr.o)
+                0x000000001000b060                _sbrk_r
+ .text          0x000000001000b084       0x5c /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-strlen-stub.o)
+                0x000000001000b084                strlen
+ .text          0x000000001000b0e0      0x260 /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-freer.o)
+                0x000000001000b0e0                _malloc_trim_r
+                0x000000001000b17c                _free_r
  *(.fini)
- .fini          0x000000001000b130        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
-                0x000000001000b130                _fini
- *fill*         0x000000001000b134        0x4 
- .fini.__stub   0x000000001000b138       0x70 linker stubs
+ .fini          0x000000001000b340        0x4 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
+                0x000000001000b340                _fini
+ *fill*         0x000000001000b344        0x4 
+ .fini.__stub   0x000000001000b348       0x70 linker stubs
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -2173,164 +2186,167 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
  *(.eh_frame*)
- .eh_frame      0x000000001000b1a8        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
-                0x000000001000b1a8                . = ALIGN (0x4)
+ .eh_frame      0x000000001000b3b8        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x000000001000b3b8                . = ALIGN (0x4)
 
-.glue_7         0x000000001000b1a8        0x0
- .glue_7        0x000000001000b1a8        0x0 linker stubs
+.glue_7         0x000000001000b3b8        0x0
+ .glue_7        0x000000001000b3b8        0x0 linker stubs
 
-.glue_7t        0x000000001000b1a8        0x0
- .glue_7t       0x000000001000b1a8        0x0 linker stubs
+.glue_7t        0x000000001000b3b8        0x0
+ .glue_7t       0x000000001000b3b8        0x0 linker stubs
 
-.vfp11_veneer   0x000000001000b1a8        0x0
- .vfp11_veneer  0x000000001000b1a8        0x0 linker stubs
+.vfp11_veneer   0x000000001000b3b8        0x0
+ .vfp11_veneer  0x000000001000b3b8        0x0 linker stubs
 
-.v4_bx          0x000000001000b1a8        0x0
- .v4_bx         0x000000001000b1a8        0x0 linker stubs
+.v4_bx          0x000000001000b3b8        0x0
+ .v4_bx         0x000000001000b3b8        0x0 linker stubs
 
-.iplt           0x000000001000b1a8        0x0
- .iplt          0x000000001000b1a8        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x000000001000b3b8        0x0
+ .iplt          0x000000001000b3b8        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x000000001000b1a8      0x638
+.rodata         0x000000001000b3b8      0x660
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
- .rodata.manage_aht20.str1.4
-                0x000000001000b1a8       0x22 CMakeFiles/Thermostat.dir/main.c.obj
- *fill*         0x000000001000b1ca        0x2 
- .rodata.get_inputs.str1.4
-                0x000000001000b1cc       0x31 CMakeFiles/Thermostat.dir/main.c.obj
- *fill*         0x000000001000b1fd        0x3 
+ .rodata.manage_sensor.str1.4
+                0x000000001000b3b8       0x22 CMakeFiles/Thermostat.dir/main.c.obj
+ *fill*         0x000000001000b3da        0x2 
  .rodata.manage_relay.str1.4
-                0x000000001000b200       0x16 CMakeFiles/Thermostat.dir/main.c.obj
- *fill*         0x000000001000b216        0x2 
+                0x000000001000b3dc       0x16 CMakeFiles/Thermostat.dir/main.c.obj
+ *fill*         0x000000001000b3f2        0x2 
+ .rodata.get_inputs.str1.4
+                0x000000001000b3f4       0x31 CMakeFiles/Thermostat.dir/main.c.obj
+ *fill*         0x000000001000b425        0x3 
  .rodata.main.str1.4
-                0x000000001000b218       0x35 CMakeFiles/Thermostat.dir/main.c.obj
- *fill*         0x000000001000b24d        0x3 
+                0x000000001000b428       0x59 CMakeFiles/Thermostat.dir/main.c.obj
+ *fill*         0x000000001000b481        0x3 
  .rodata.seven_seg_begin.str1.4
-                0x000000001000b250        0x6 CMakeFiles/Thermostat.dir/seven_seg.c.obj
- *fill*         0x000000001000b256        0x2 
+                0x000000001000b484        0x6 CMakeFiles/Thermostat.dir/seven_seg.c.obj
+ *fill*         0x000000001000b48a        0x2 
+ .rodata.seven_seg_display_off.str1.4
+                0x000000001000b48c        0x2 CMakeFiles/Thermostat.dir/seven_seg.c.obj
+ *fill*         0x000000001000b48e        0x2 
  .rodata.charmap
-                0x000000001000b258       0x12 CMakeFiles/Thermostat.dir/seven_seg.c.obj
- *fill*         0x000000001000b26a        0x2 
+                0x000000001000b490       0x12 CMakeFiles/Thermostat.dir/seven_seg.c.obj
+ *fill*         0x000000001000b4a2        0x2 
  .rodata.__bi_26.0
-                0x000000001000b26c        0x8 CMakeFiles/Thermostat.dir/i2c_module.c.obj
+                0x000000001000b4a4        0x8 CMakeFiles/Thermostat.dir/i2c_module.c.obj
  .rodata.aht20_initialize.str1.4
-                0x000000001000b274        0x3 CMakeFiles/Thermostat.dir/aht20.c.obj
- *fill*         0x000000001000b277        0x1 
+                0x000000001000b4ac        0x3 CMakeFiles/Thermostat.dir/aht20.c.obj
+ *fill*         0x000000001000b4af        0x1 
  .rodata.aht20_start_measurement.str1.4
-                0x000000001000b278        0x3 CMakeFiles/Thermostat.dir/aht20.c.obj
- *fill*         0x000000001000b27b        0x1 
+                0x000000001000b4b0        0x3 CMakeFiles/Thermostat.dir/aht20.c.obj
+ *fill*         0x000000001000b4b3        0x1 
  .rodata.spin_lock_claim_unused.str1.4
-                0x000000001000b27c       0x1b CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- *fill*         0x000000001000b297        0x1 
+                0x000000001000b4b4       0x1b CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ *fill*         0x000000001000b4cf        0x1 
  .rodata.user_irq_claim_unused.str1.4
-                0x000000001000b298       0x1b CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x000000001000b2b3        0x1 
+                0x000000001000b4d0       0x1b CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x000000001000b4eb        0x1 
  .rodata.hardware_alarm_claim.str1.4
-                0x000000001000b2b4       0x22 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x000000001000b2d6        0x2 
+                0x000000001000b4ec       0x22 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x000000001000b50e        0x2 
  .rodata.panic.str1.4
-                0x000000001000b2d8       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x000000001000b510       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                                          0x12 (size before relaxing)
  .rodata.hard_assertion_failure.str1.4
-                0x000000001000b2e8        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x000000001000b520        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
  .rodata._ftoa.str1.4
-                0x000000001000b2f4       0x15 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- *fill*         0x000000001000b309        0x3 
+                0x000000001000b52c       0x15 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ *fill*         0x000000001000b541        0x3 
  .rodata._vsnprintf
-                0x000000001000b30c      0x1e0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- *fill*         0x000000001000b4ec        0x4 
+                0x000000001000b544      0x1e0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ *fill*         0x000000001000b724        0x4 
  .rodata.pow10.0
-                0x000000001000b4f0       0x50 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x000000001000b728       0x50 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .rodata.__wrap_malloc.str1.4
-                0x000000001000b540        0xe CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
- *fill*         0x000000001000b54e        0x2 
+                0x000000001000b778        0xe CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+ *fill*         0x000000001000b786        0x2 
  .rodata.str1.4
-                0x000000001000b550       0x40 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000b788       0x40 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_44
-                0x000000001000b590        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000b7c8        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_75
-                0x000000001000b59c        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000b7d4        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_81
-                0x000000001000b5a8        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000b7e0        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.crlf_str.0
-                0x000000001000b5b4        0x2 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- *fill*         0x000000001000b5b6        0x2 
+                0x000000001000b7ec        0x2 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ *fill*         0x000000001000b7ee        0x2 
  .rodata._resetd_driver
-                0x000000001000b5b8       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x000000001000b7f0       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .rodata.str1.4
-                0x000000001000b5d0       0x13 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- *fill*         0x000000001000b5e3        0x1 
+                0x000000001000b808       0x13 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ *fill*         0x000000001000b81b        0x1 
  .rodata.__bi_118.0
-                0x000000001000b5e4        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x000000001000b81c        0xc CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .rodata.str1.4
-                0x000000001000b5f0       0x2a CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- *fill*         0x000000001000b61a        0x2 
+                0x000000001000b828       0x2a CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ *fill*         0x000000001000b852        0x2 
  .rodata.usbd_desc_cfg
-                0x000000001000b61c       0x54 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x000000001000b854       0x54 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_device
-                0x000000001000b670       0x12 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- *fill*         0x000000001000b682        0x2 
+                0x000000001000b8a8       0x12 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ *fill*         0x000000001000b8ba        0x2 
  .rodata.usbd_desc_str
-                0x000000001000b684       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x000000001000b8bc       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.dcd_rp2040_irq.str1.4
-                0x000000001000b69c       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x000000001000b8d4       0x14 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .rodata._hw_endpoint_buffer_control_update32.part.0.isra.0.str1.4
-                0x000000001000b6b0       0x1f CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- *fill*         0x000000001000b6cf        0x1 
+                0x000000001000b8e8       0x1f CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ *fill*         0x000000001000b907        0x1 
  .rodata.hw_endpoint_xfer_continue.str1.4
-                0x000000001000b6d0       0x29 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- *fill*         0x000000001000b6f9        0x3 
+                0x000000001000b908       0x29 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ *fill*         0x000000001000b931        0x3 
  .rodata.str1.4
-                0x000000001000b6fc        0x7 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- *fill*         0x000000001000b703        0x1 
+                0x000000001000b934        0x7 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ *fill*         0x000000001000b93b        0x1 
  .rodata.tud_task
-                0x000000001000b704       0x8c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x000000001000b93c       0x8c CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .rodata._usbd_driver
-                0x000000001000b790       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
- .rodata        0x000000001000b7a8       0x28 ../FreeRTOS/libfreertos.a(timers.c.obj)
+                0x000000001000b9c8       0x18 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+ .rodata        0x000000001000b9e0       0x28 ../FreeRTOS/libfreertos.a(timers.c.obj)
  .rodata.str1.4
-                0x000000001000b7d0       0x10 ../FreeRTOS/libfreertos.a(timers.c.obj)
-                0x000000001000b7e0                . = ALIGN (0x4)
+                0x000000001000ba08       0x10 ../FreeRTOS/libfreertos.a(timers.c.obj)
+                0x000000001000ba18                . = ALIGN (0x4)
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.flashdata*)))
-                0x000000001000b7e0                . = ALIGN (0x4)
+                0x000000001000ba18                . = ALIGN (0x4)
 
-.rel.dyn        0x000000001000b7e0        0x0
- .rel.iplt      0x000000001000b7e0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x000000001000ba18        0x0
+ .rel.iplt      0x000000001000ba18        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000001000b7e0                __exidx_start = .
+                0x000000001000ba18                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x000000001000b7e0                __exidx_end = .
-                0x000000001000b7e0                . = ALIGN (0x4)
-                0x000000001000b7e0                __binary_info_start = .
+                0x000000001000ba18                __exidx_end = .
+                0x000000001000ba18                . = ALIGN (0x4)
+                0x000000001000ba18                __binary_info_start = .
 
-.binary_info    0x000000001000b7e0       0x24
+.binary_info    0x000000001000ba18       0x24
  *(.binary_info.keep.*)
  .binary_info.keep.__bi_ptr26
-                0x000000001000b7e0        0x4 CMakeFiles/Thermostat.dir/i2c_module.c.obj
+                0x000000001000ba18        0x4 CMakeFiles/Thermostat.dir/i2c_module.c.obj
  .binary_info.keep.__bi_ptr22
-                0x000000001000b7e4        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000ba1c        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr30
-                0x000000001000b7e8        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000ba20        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr38
-                0x000000001000b7ec        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000ba24        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr44
-                0x000000001000b7f0        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000ba28        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr50
-                0x000000001000b7f4        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000ba2c        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr75
-                0x000000001000b7f8        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000ba30        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr81
-                0x000000001000b7fc        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x000000001000ba34        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  *(.binary_info.*)
  .binary_info.__bi_ptr118
-                0x000000001000b800        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x000000001000b804                __binary_info_end = .
-                0x000000001000b804                . = ALIGN (0x4)
-                0x000000001000b804                __etext = .
+                0x000000001000ba38        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x000000001000ba3c                __binary_info_end = .
+                0x000000001000ba3c                . = ALIGN (0x4)
+                0x000000001000ba3c                __etext = .
 
 .ram_vector_table
                 0x0000000020000000       0xc0
@@ -2339,7 +2355,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
                 0x0000000020000000       0xc0 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                 0x0000000020000000                ram_vector_table
 
-.data           0x00000000200000c0      0xc20 load address 0x000000001000b804
+.data           0x00000000200000c0      0xc20 load address 0x000000001000ba3c
                 0x00000000200000c0                __data_start__ = .
  *(vtable)
  *(.time_critical*)
@@ -2462,35 +2478,35 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
                 0x0000000020000ce0                __data_end__ = .
 
 .tm_clone_table
-                0x0000000020000ce0        0x0 load address 0x000000001000c424
+                0x0000000020000ce0        0x0 load address 0x000000001000c65c
  .tm_clone_table
                 0x0000000020000ce0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
  .tm_clone_table
                 0x0000000020000ce0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtend.o
 
-.igot.plt       0x0000000020000ce0        0x0 load address 0x000000001000c424
+.igot.plt       0x0000000020000ce0        0x0 load address 0x000000001000c65c
  .igot.plt      0x0000000020000ce0        0x0 /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .uninitialized_data
-                0x0000000020000ce0        0x0 load address 0x000000001000c424
+                0x0000000020000ce0        0x0 load address 0x000000001000c65c
                 0x0000000020000ce0                . = ALIGN (0x4)
  *(.uninitialized_data*)
 
-.scratch_x      0x0000000020040000        0x0 load address 0x000000001000c424
+.scratch_x      0x0000000020040000        0x0 load address 0x000000001000c65c
                 0x0000000020040000                __scratch_x_start__ = .
  *(.scratch_x.*)
                 0x0000000020040000                . = ALIGN (0x4)
                 0x0000000020040000                __scratch_x_end__ = .
-                0x000000001000c424                __scratch_x_source__ = LOADADDR (.scratch_x)
+                0x000000001000c65c                __scratch_x_source__ = LOADADDR (.scratch_x)
 
-.scratch_y      0x0000000020041000        0x0 load address 0x000000001000c424
+.scratch_y      0x0000000020041000        0x0 load address 0x000000001000c65c
                 0x0000000020041000                __scratch_y_start__ = .
  *(.scratch_y.*)
                 0x0000000020041000                . = ALIGN (0x4)
                 0x0000000020041000                __scratch_y_end__ = .
-                0x000000001000c424                __scratch_y_source__ = LOADADDR (.scratch_y)
+                0x000000001000c65c                __scratch_y_source__ = LOADADDR (.scratch_y)
 
-.bss            0x0000000020000ce0      0xf6c
+.bss            0x0000000020000ce0      0xf74
                 0x0000000020000ce0                . = ALIGN (0x4)
                 0x0000000020000ce0                __bss_start__ = .
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.bss*)))
@@ -2568,53 +2584,59 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
                 0x0000000020001bf8        0x4 CMakeFiles/Thermostat.dir/main.c.obj
  .bss.retrieved_id
                 0x0000000020001bfc        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .bss.screen_timeout_timer
+                0x0000000020001c04        0x4 CMakeFiles/Thermostat.dir/main.c.obj
  .bss.sf_clz_func
-                0x0000000020001c04        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-                0x0000000020001c04                sf_clz_func
+                0x0000000020001c08        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                0x0000000020001c08                sf_clz_func
  .bss.sleep_notifier
-                0x0000000020001c08        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x0000000020001c0c        0x4 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/common/pico_time/time.c.obj
  .bss.stdio_usb_mutex
-                0x0000000020001c0c        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x0000000020001c10        0x8 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .bss.target_hi
-                0x0000000020001c14       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000020001c18       0x10 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .bss.temperature
-                0x0000000020001c24        0x4 CMakeFiles/Thermostat.dir/aht20.c.obj
+                0x0000000020001c28        0x4 CMakeFiles/Thermostat.dir/aht20.c.obj
  .bss.temperature_setting
-                0x0000000020001c28        0x4 CMakeFiles/Thermostat.dir/main.c.obj
+                0x0000000020001c2c        0x4 CMakeFiles/Thermostat.dir/main.c.obj
  .bss.usbd_serial_str
-                0x0000000020001c2c       0x11 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- *fill*         0x0000000020001c3d        0x3 
+                0x0000000020001c30       0x11 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ *fill*         0x0000000020001c41        0x3 
  .bss.user_irq_claimed
-                0x0000000020001c40        0x2 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x0000000020001c44        0x2 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .bss._app_driver_count
-                0x0000000020001c42        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000020001c46        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .bss._usbd_initialized
-                0x0000000020001c43        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x0000000020001c47        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .bss.boot2_copyout_valid
-                0x0000000020001c44        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
- .bss.claimed   0x0000000020001c45        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000020001c48        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+ .bss.claimed   0x0000000020001c49        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .bss.current_state
-                0x0000000020001c46        0x1 CMakeFiles/Thermostat.dir/main.c.obj
-                0x0000000020001c46                current_state
+                0x0000000020001c4a        0x1 CMakeFiles/Thermostat.dir/main.c.obj
+ .bss.display_is_on
+                0x0000000020001c4b        0x1 CMakeFiles/Thermostat.dir/seven_seg.c.obj
  .bss.initialized
-                0x0000000020001c47        0x1 CMakeFiles/Thermostat.dir/aht20.c.obj
+                0x0000000020001c4c        0x1 CMakeFiles/Thermostat.dir/aht20.c.obj
  .bss.irq_hander_chain_free_slot_head
-                0x0000000020001c48        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- .bss.itf_num   0x0000000020001c49        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x0000000020001c4d        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ .bss.itf_num   0x0000000020001c4e        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .bss.low_priority_irq_num
-                0x0000000020001c4a        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x0000000020001c4f        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .bss.timer_callbacks_pending
-                0x0000000020001c4b        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x0000000020001c50        0x1 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ .bss.user_setting_temp
+                0x0000000020001c51        0x1 CMakeFiles/Thermostat.dir/main.c.obj
  *(COMMON)
-                0x0000000020001c4c                . = ALIGN (0x4)
-                0x0000000020001c4c                __bss_end__ = .
+                0x0000000020001c54                . = ALIGN (0x4)
+ *fill*         0x0000000020001c52        0x2 
+                0x0000000020001c54                __bss_end__ = .
 
-.heap           0x0000000020001c4c      0x800
-                0x0000000020001c4c                __end__ = .
-                0x0000000020001c4c                end = __end__
+.heap           0x0000000020001c54      0x800
+                0x0000000020001c54                __end__ = .
+                0x0000000020001c54                end = __end__
  *(.heap*)
- .heap          0x0000000020001c4c      0x800 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
-                0x000000002000244c                __HeapLimit = .
+ .heap          0x0000000020001c54      0x800 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+                0x0000000020002454                __HeapLimit = .
 
 .stack1_dummy   0x0000000020040000        0x0
  *(.stack1*)
@@ -2623,8 +2645,8 @@ LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nof
  *(.stack*)
  .stack         0x0000000020041000      0x800 CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 
-.flash_end      0x000000001000c424        0x0
-                0x000000001000c424                __flash_binary_end = .
+.flash_end      0x000000001000c65c        0x0
+                0x000000001000c65c                __flash_binary_end = .
                 0x0000000020040000                __StackLimit = (ORIGIN (RAM) + LENGTH (RAM))
                 0x0000000020041000                __StackOneTop = (ORIGIN (SCRATCH_X) + LENGTH (SCRATCH_X))
                 0x0000000020042000                __StackTop = (ORIGIN (SCRATCH_Y) + LENGTH (SCRATCH_Y))
@@ -2707,7 +2729,7 @@ LOAD CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/pico_uni
 LOAD CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
 LOAD CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 LOAD ../FreeRTOS/libfreertos.a
-LOAD /tmp/cctBskOj.o
+LOAD /tmp/ccxb64c5.o
 LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/10.3.1/../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -2843,7 +2865,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000000000000960       0x2c ../FreeRTOS/libfreertos.a(queue.c.obj)
  .ARM.attributes
-                0x000000000000098c       0x22 /tmp/cctBskOj.o
+                0x000000000000098c       0x22 /tmp/ccxb64c5.o
  .ARM.attributes
                 0x00000000000009ae       0x1e /usr/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes

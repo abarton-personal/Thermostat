@@ -25,9 +25,10 @@ void seven_seg_display_off();
 
 void seven_seg_brightness(uint8_t brightness);
 
-void seven_seg_display_test(uint8_t pos, uint8_t num);
+void seven_seg_display_test();
 
 void seven_seg_display_temp(int temperature);
 
+void seven_seg_display_humidity(int humidity);
 
 #endif

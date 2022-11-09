@@ -2867,7 +2867,9 @@ ProjectFiles/CMakeFiles/Thermostat.dir/main.c.obj: ../ProjectFiles/main.c \
   /usr/include/newlib/math.h \
   ../ProjectFiles/seven_seg.h \
   ../ProjectFiles/aht20.h \
-  ../ProjectFiles/i2c_module.h
+  ../ProjectFiles/i2c_module.h \
+  ../FreeRTOS/FreeRTOS-Kernel/include/timers.h \
+  ../FreeRTOS/FreeRTOS-Kernel/include/task.h
 
 ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_seg.c \
   ../ProjectFiles/seven_seg.h \
@@ -2950,6 +2952,8 @@ ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_se
 
 
 ../ProjectFiles/seven_seg.c:
+
+../FreeRTOS/FreeRTOS-Kernel/include/timers.h:
 
 ../ProjectFiles/seven_seg.h:
 
