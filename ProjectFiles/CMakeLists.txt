@@ -7,6 +7,8 @@ if (TARGET tinyusb_device)
             i2c_module.c         
             aht20.h
             aht20.c  
+            circular_buffer.h
+            circular_buffer.c
             )
 
     # pull in common dependencies

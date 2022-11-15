@@ -168,6 +168,30 @@ aht20.c.s:
 	cd /home/austin/pico/Thermostat/build && $(MAKE) $(MAKESILENT) -f ProjectFiles/CMakeFiles/Thermostat.dir/build.make ProjectFiles/CMakeFiles/Thermostat.dir/aht20.c.s
 .PHONY : aht20.c.s
 
+circular_buffer.obj: circular_buffer.c.obj
+.PHONY : circular_buffer.obj
+
+# target to build an object file
+circular_buffer.c.obj:
+	cd /home/austin/pico/Thermostat/build && $(MAKE) $(MAKESILENT) -f ProjectFiles/CMakeFiles/Thermostat.dir/build.make ProjectFiles/CMakeFiles/Thermostat.dir/circular_buffer.c.obj
+.PHONY : circular_buffer.c.obj
+
+circular_buffer.i: circular_buffer.c.i
+.PHONY : circular_buffer.i
+
+# target to preprocess a source file
+circular_buffer.c.i:
+	cd /home/austin/pico/Thermostat/build && $(MAKE) $(MAKESILENT) -f ProjectFiles/CMakeFiles/Thermostat.dir/build.make ProjectFiles/CMakeFiles/Thermostat.dir/circular_buffer.c.i
+.PHONY : circular_buffer.c.i
+
+circular_buffer.s: circular_buffer.c.s
+.PHONY : circular_buffer.s
+
+# target to generate assembly for a file
+circular_buffer.c.s:
+	cd /home/austin/pico/Thermostat/build && $(MAKE) $(MAKESILENT) -f ProjectFiles/CMakeFiles/Thermostat.dir/build.make ProjectFiles/CMakeFiles/Thermostat.dir/circular_buffer.c.s
+.PHONY : circular_buffer.c.s
+
 home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj: home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 .PHONY : home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj
 
@@ -1733,6 +1757,9 @@ help:
 	@echo "... aht20.obj"
 	@echo "... aht20.i"
 	@echo "... aht20.s"
+	@echo "... circular_buffer.obj"
+	@echo "... circular_buffer.i"
+	@echo "... circular_buffer.s"
 	@echo "... home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj"
 	@echo "... home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
 	@echo "... home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"

@@ -72,4 +72,5 @@ ProjectFiles/CMakeFiles/Thermostat.dir/main.c.obj: \
  /home/austin/pico/Thermostat/ProjectFiles/aht20.h \
  /home/austin/pico/Thermostat/ProjectFiles/i2c_module.h \
  /home/austin/pico/Thermostat/FreeRTOS/FreeRTOS-Kernel/include/timers.h \
- /home/austin/pico/Thermostat/FreeRTOS/FreeRTOS-Kernel/include/task.h
+ /home/austin/pico/Thermostat/FreeRTOS/FreeRTOS-Kernel/include/task.h \
+ /home/austin/pico/Thermostat/ProjectFiles/circular_buffer.h

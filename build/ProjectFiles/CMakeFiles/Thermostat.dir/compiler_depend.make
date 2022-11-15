@@ -7,6 +7,9 @@ ProjectFiles/CMakeFiles/Thermostat.dir/aht20.c.obj: ../ProjectFiles/aht20.c \
   /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
   /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h
 
+ProjectFiles/CMakeFiles/Thermostat.dir/circular_buffer.c.obj: ../ProjectFiles/circular_buffer.c \
+  ../ProjectFiles/circular_buffer.h
+
 ProjectFiles/CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj: /home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c \
   /home/austin/pico/pico-sdk/lib/tinyusb/src/tusb_option.h \
   /home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/tusb_config.h \
@@ -2869,7 +2872,8 @@ ProjectFiles/CMakeFiles/Thermostat.dir/main.c.obj: ../ProjectFiles/main.c \
   ../ProjectFiles/aht20.h \
   ../ProjectFiles/i2c_module.h \
   ../FreeRTOS/FreeRTOS-Kernel/include/timers.h \
-  ../FreeRTOS/FreeRTOS-Kernel/include/task.h
+  ../FreeRTOS/FreeRTOS-Kernel/include/task.h \
+  ../ProjectFiles/circular_buffer.h
 
 ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_seg.c \
   ../ProjectFiles/seven_seg.h \
@@ -3091,8 +3095,6 @@ ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_se
 
 /home/austin/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c:
 
-/usr/include/newlib/sys/stdio.h:
-
 /usr/include/newlib/c++/10.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/cpu_defines.h:
 
 /usr/include/newlib/sys/_timespec.h:
@@ -3133,11 +3135,35 @@ ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_se
 
 /home/austin/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h:
 
-/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_math.c:
+/usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h:
 
-/usr/include/newlib/sys/_locale.h:
+/home/austin/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h:
 
-/home/austin/pico/pico-sdk/src/common/pico_base/include/pico/types.h:
+/home/austin/pico/pico-sdk/src/rp2_common/pico_double/include/pico/double.h:
+
+/usr/include/newlib/inttypes.h:
+
+../ProjectFiles/aht20.h:
+
+/home/austin/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c:
+
+/home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c:
+
+/home/austin/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h:
+
+/usr/lib/gcc/arm-none-eabi/10.3.1/include/float.h:
+
+/home/austin/pico/pico-sdk/src/common/pico_util/include/pico/util/pheap.h:
+
+/home/austin/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h:
+
+/usr/include/newlib/sys/types.h:
+
+/home/austin/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/vreg_and_chip_reset.h:
+
+../ProjectFiles/i2c_module.h:
+
+/usr/include/newlib/newlib.h:
 
 /home/austin/pico/pico-sdk/src/rp2_common/pico_float/include/pico/float.h:
 
@@ -3151,41 +3177,19 @@ ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_se
 
 /home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc.h:
 
+/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h:
+
+/home/austin/pico/pico-sdk/src/common/pico_util/queue.c:
+
+/home/austin/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c:
+
 /home/austin/pico/pico-sdk/src/common/pico_base/include/pico.h:
-
-/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h:
-
-/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c:
-
-/usr/include/newlib/machine/types.h:
-
-/home/austin/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h:
-
-/usr/include/newlib/sys/types.h:
-
-/home/austin/pico/pico-sdk/src/common/pico_base/include/pico/assert.h:
-
-/usr/include/newlib/assert.h:
-
-/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c:
 
 /usr/include/newlib/stdio.h:
 
 /home/austin/pico/pico-sdk/lib/tinyusb/src/device/dcd_attr.h:
 
 /home/austin/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:
-
-/home/austin/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c:
-
-/home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c:
-
-../ProjectFiles/aht20.h:
-
-/home/austin/pico/pico-sdk/src/common/pico_binary_info/include/pico/binary_info/code.h:
-
-/usr/lib/gcc/arm-none-eabi/10.3.1/include/float.h:
-
-/home/austin/pico/pico-sdk/src/common/pico_util/include/pico/util/pheap.h:
 
 /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h:
 
@@ -3197,13 +3201,19 @@ ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_se
 
 /usr/include/newlib/sys/config.h:
 
-/home/austin/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/vreg_and_chip_reset.h:
-
-../ProjectFiles/i2c_module.h:
-
-/usr/include/newlib/newlib.h:
-
 ../ProjectFiles/aht20.c:
+
+/home/austin/pico/pico-sdk/src/rp2_common/pico_float/float_math.c:
+
+/usr/include/newlib/sys/_locale.h:
+
+/home/austin/pico/pico-sdk/src/common/pico_base/include/pico/types.h:
+
+/home/austin/pico/pico-sdk/src/common/pico_base/include/pico/assert.h:
+
+/usr/include/newlib/assert.h:
+
+/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c:
 
 /usr/include/newlib/_ansi.h:
 
@@ -3227,19 +3237,13 @@ ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_se
 
 /usr/include/newlib/strings.h:
 
-/usr/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h:
-
-/home/austin/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h:
-
-/home/austin/pico/pico-sdk/src/rp2_common/pico_double/include/pico/double.h:
-
-/usr/include/newlib/inttypes.h:
-
 /home/austin/pico/pico-sdk/lib/tinyusb/src/common/tusb_compiler.h:
 
 /home/austin/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h:
 
 ../FreeRTOS/FreeRTOS-Kernel/include/projdefs.h:
+
+../ProjectFiles/circular_buffer.c:
 
 /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h:
 
@@ -3250,6 +3254,10 @@ ProjectFiles/CMakeFiles/Thermostat.dir/seven_seg.c.obj: ../ProjectFiles/seven_se
 /home/austin/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c:
 
 /home/austin/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h:
+
+../ProjectFiles/circular_buffer.h:
+
+/home/austin/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c:
 
 generated/pico_base/pico/version.h:
 
@@ -3267,9 +3275,23 @@ generated/pico_base/pico/config_autogen.h:
 
 /home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h:
 
+/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c:
+
+/usr/include/newlib/sys/sched.h:
+
+/home/austin/pico/pico-sdk/src/boards/include/boards/pico.h:
+
 /usr/include/newlib/machine/_types.h:
 
 /home/austin/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/usb.h:
+
+/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/include/hardware/i2c.h:
+
+/home/austin/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c:
+
+/usr/include/newlib/machine/types.h:
+
+/usr/include/newlib/sys/stdio.h:
 
 ../FreeRTOS/FreeRTOS-Kernel/portable/GCC/ARM_CM0/portmacro.h:
 
@@ -3339,8 +3361,6 @@ generated/pico_base/pico/config_autogen.h:
 
 /usr/include/newlib/sys/_intsup.h:
 
-/home/austin/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c:
-
 /home/austin/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/i2c.h:
 
 /home/austin/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/watchdog.h:
@@ -3364,12 +3384,6 @@ generated/pico_base/pico/config_autogen.h:
 /home/austin/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h:
 
 /home/austin/pico/pico-sdk/lib/tinyusb/src/device/dcd.h:
-
-/home/austin/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb/reset_interface.h:
-
-/home/austin/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c:
-
-/home/austin/pico/pico-sdk/src/common/pico_util/queue.c:
 
 /home/austin/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h:
 
@@ -3422,9 +3436,3 @@ generated/pico_base/pico/config_autogen.h:
 /home/austin/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c:
 
 /home/austin/pico/pico-sdk/src/common/pico_util/datetime.c:
-
-/usr/include/newlib/sys/sched.h:
-
-/home/austin/pico/pico-sdk/src/boards/include/boards/pico.h:
-
-/home/austin/pico/pico-sdk/src/common/pico_util/pheap.c:

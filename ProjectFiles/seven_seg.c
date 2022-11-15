@@ -1,4 +1,4 @@
-
+// Adapted from https://github.com/RobTillaart/HT16K33
 
 #include "seven_seg.h"
 #include "hardware/i2c.h"
@@ -6,7 +6,7 @@
 #include "pico/binary_info.h"
 #include "i2c_module.h"
 
-#define MY_MESSAGE "get a dog little loggie\n"
+
 
 #define HT16K33_ADDRESS 0x70
 
@@ -28,8 +28,8 @@
 // xxxx    =  0000 .. 1111 (0 - F)
 #define HT16K33_BRIGHTNESS      0xE0
 
-static const uint8_t charmap[18] = {  // TODO PROGMEM ?
-
+#define CHARMAP_LENGTH 18
+static const uint8_t charmap[CHARMAP_LENGTH] = {  // TODO PROGMEM ?
   0x3F,   // 0
   0x06,   // 1
   0x5B,   // 2
@@ -51,22 +51,24 @@ static const uint8_t charmap[18] = {  // TODO PROGMEM ?
 };
 #define LETTER_H 0x74
 
+
 static uint8_t displaycache[5] = {0,0,0,0,0};
 static bool display_is_on = false;
 
 
-void print_my_message(){
-    printf(MY_MESSAGE);
-};
-
 
 static void refresh()
 {
-  for (uint8_t pos = 0; pos <= 4; pos++)
-  {
-    uint8_t buffer[2] = {(pos * 2), displaycache[pos]};
-    i2c_module_send(HT16K33_ADDRESS, buffer, 2);
-  }
+    // turn on the display if it isn't already
+    if(!display_is_on)
+        seven_seg_display_on();
+
+    // put characters from displaycache on the screen
+    for (uint8_t pos = 0; pos <= 4; pos++)
+    {
+        uint8_t buffer[2] = {(pos * 2), displaycache[pos]};
+        i2c_module_send(HT16K33_ADDRESS, buffer, 2);
+    }
 }
 
 
@@ -76,7 +78,7 @@ bool seven_seg_begin(){
     uint8_t buffer[1] = {HT16K33_ON};
     i2c_module_send(HT16K33_ADDRESS, buffer, 1);    
 
-    seven_seg_display_on();
+    // seven_seg_display_on();
     seven_seg_brightness(0xF);
 }
 
@@ -108,13 +110,19 @@ void seven_seg_brightness(uint8_t brightness){
     i2c_module_send(HT16K33_ADDRESS, buffer, 1);
 }
 
-void seven_seg_display_test(){
+// testarray must be length 4
+void seven_seg_display_test(int* testarray){
     
-    displaycache[0] = charmap[0xB];
-    displaycache[1] = charmap[0xE];
+    //check for valid input. must be 4 numbers that each map to charmap
+    for(int i=0; i<4; i++){
+        if(testarray[i] >= CHARMAP_LENGTH || testarray[i] < 0) return;
+    }
+
+    displaycache[0] = charmap[testarray[0]];
+    displaycache[1] = charmap[testarray[1]];
     displaycache[2] = 0x00;
-    displaycache[3] = charmap[0xE];
-    displaycache[4] = charmap[0xF];
+    displaycache[3] = charmap[testarray[2]];
+    displaycache[4] = charmap[testarray[3]];
     refresh();
 
 }
@@ -171,10 +179,6 @@ void seven_seg_display_humidity(int humidity){
     
     //check for invalid numbers
     if(humidity > 99 || humidity < 1) return;
-
-    // turn on the display if it isn't already
-    if(!display_is_on)
-        seven_seg_display_on();
     
     displaycache[0] = LETTER_H;
     displaycache[1] = 0x00;

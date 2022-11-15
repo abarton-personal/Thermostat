@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Thermostat.dir/aht20.c.obj"
   "CMakeFiles/Thermostat.dir/aht20.c.obj.d"
+  "CMakeFiles/Thermostat.dir/circular_buffer.c.obj"
+  "CMakeFiles/Thermostat.dir/circular_buffer.c.obj.d"
   "CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj"
   "CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj.d"
   "CMakeFiles/Thermostat.dir/home/austin/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj"

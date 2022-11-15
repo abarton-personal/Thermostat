@@ -7,13 +7,6 @@
 
 
 
-
-
-
-
-// prints a dumb sentence
-void print_my_message();
-
 // WARNING: Call i2c start before calling this. I'll organize it better later
 bool seven_seg_begin();
 
@@ -25,7 +18,7 @@ void seven_seg_display_off();
 
 void seven_seg_brightness(uint8_t brightness);
 
-void seven_seg_display_test();
+void seven_seg_display_test(int* testarray);
 
 void seven_seg_display_temp(int temperature);
 
